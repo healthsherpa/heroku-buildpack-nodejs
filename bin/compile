@@ -8,7 +8,7 @@ set -o pipefail   # don't ignore exit codes when piping output
 unset GIT_DIR     # Avoid GIT_DIR leak from previous build steps
 
 if [ $NODEJS_CI_NODE -eq $CI_NODE_INDEX ]; then
-  echo "NODEJS_CI_NODE indicates that this CI dyno requires node js"
+  echo "NODEJS_CI_NODE value of $NODEJS_CI_NODE matches CI_NODE_INDEX $CI_NODE_INDEX -- compiling node js"
 else
   echo "Skipping compilation of node js; check NODEJS_CI_NODE environment variable if this is an error"
   exit 0
